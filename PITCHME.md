@@ -2,9 +2,7 @@
 
 Link [Github](https://github.com/emilybache/GildedRose-Refactoring-Kata) ...in vielen Sprachen
 
----
-
-### Public API
+#### Public API
 
 ```elm
 module GildedRose exposing (GildedRose, Item(..))
