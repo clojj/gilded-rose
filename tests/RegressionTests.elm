@@ -1,7 +1,7 @@
 module RegressionTests exposing (suite)
 
 import Expect
-import GildedRose exposing (Item, makeItem)
+import GildedRose exposing (Item(..))
 import Helpers exposing (updateOne)
 import Test exposing (Test, test)
 
@@ -12,12 +12,12 @@ suite =
         \_ ->
             let
                 item =
-                    makeItem "Sulfuras, Hand of Ragnaros" 1 42
+                    Item "Sulfuras, Hand of Ragnaros" 1 42
 
                 item_ =
                     updateOne item
             in
-            Expect.equal (makeItem "Sulfuras, Hand of Ragnaros" 1 42) item_
+            Expect.equal (Item "Sulfuras, Hand of Ragnaros" 1 42) item_
 
 
 
