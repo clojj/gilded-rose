@@ -2,13 +2,17 @@
 
 Link [Github](https://github.com/emilybache/GildedRose-Refactoring-Kata) ...in vielen Sprachen
 
-@snap[south span-100]
----?code=src/GildedRose.elm&lang=elm
-@snapend
+### Public API
 
-@snap[north-east span-100 text-08 text-gray]
-Public API
-@snapend
+```elm
+module GildedRose exposing (GildedRose, Item(..))
 
-@[10-11](Item with exposed constructor)
-@[19](update method)
+type Item
+    = Item String Int Int
+
+updateQuality : GildedRose -> GildedRose
+-- etc.    
+```
+@[1](public API)
+@[3-4](Item with exposed constructor)
+@[6-](update method)
