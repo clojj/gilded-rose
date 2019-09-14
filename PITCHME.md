@@ -2,6 +2,8 @@
 
 Link [Github](https://github.com/emilybache/GildedRose-Refactoring-Kata) ...in vielen Sprachen
 
+---
+
 ### Public API
 
 ```elm
