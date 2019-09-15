@@ -1,9 +1,10 @@
 module Item exposing (Item(..))
 
 
+import Helpers exposing (Quality, SellIn)
 type Item
     = Item
         { name : String
-        , quality : Int
-        , sellIn : Int
+        , quality : Quality
+        , sellIn : SellIn
         }

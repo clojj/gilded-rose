@@ -1,27 +1,18 @@
-module GildedRose exposing (GildedRose, Item(..), showItem, updateQuality)
+module GildedRose exposing (Item(..), updateQuality)
 
-import String exposing (fromInt)
-
-
-type alias GildedRose =
-    List Item
+-- exposing list = Public API !
 
 
 type Item
     = Item String Int Int
 
 
-showItem : Item -> String
-showItem (Item name sellIn quality) =
-    "ITEM " ++ name ++ ", sellIn " ++ fromInt sellIn ++ ", quality " ++ fromInt quality
-
-
-updateQuality : GildedRose -> GildedRose
+updateQuality : List Item -> List Item
 updateQuality =
     List.map updateQualityItem
 
 
-updateQualityItem (Item name sellIn quality) =
+updateQualityItem (Item name quality sellIn) =
     let
         quality_ =
             if name /= "Aged Brie" && name /= "Backstage passes to a TAFKAL80ETC concert" then
@@ -78,22 +69,22 @@ updateQualityItem (Item name sellIn quality) =
             if name /= "Backstage passes to a TAFKAL80ETC concert" then
                 if quality_ > 0 then
                     if name /= "Sulfuras, Hand of Ragnaros" then
-                        Item name sellIn_ (quality_ - 1)
+                        Item name (quality_ - 1) sellIn_
 
                     else
-                        Item name sellIn_ quality_
+                        Item name quality_ sellIn_
 
                 else
-                    Item name sellIn_ quality_
+                    Item name quality_ sellIn_
 
             else
-                Item name sellIn_ (quality_ - quality_)
+                Item name (quality_ - quality_) sellIn_
 
         else if quality_ < 50 then
-            Item name sellIn_ (quality_ + 1)
+            Item name (quality_ + 1) sellIn_
 
         else
-            Item name sellIn_ quality_
+            Item name quality_ sellIn_
 
     else
-        Item name sellIn_ quality_
+        Item name quality_ sellIn_
